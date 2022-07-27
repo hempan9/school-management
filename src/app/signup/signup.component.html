@@ -1,0 +1,42 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="text-center">
+                    <h1>School Account Signup </h1>
+                    <h5>Feel free to Signup.❤️</h5><hr>
+
+                </div>
+                <form #studentForm="ngForm"  (ngSubmit)= "signUp(studentForm.value)" >
+                    <div class="mb-3">
+                      <label class="form-label">First Name</label>
+                      <input ngModel name="firstName" placeholder="First Name" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Last Name</label>
+                        <input ngModel name="lastName" placeholder="Last Name"  type="text"  class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                      </div>
+
+                      <div class="mb-3">
+                        <label class="form-label">Email address</label>
+                        <input ngModel name="email" placeholder="Email Address" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                      </div>
+
+                      <div class="mb-3">
+                        <label class="form-label">Phone Number</label>
+                        <input type="phone" ngModel name = "phone" placeholder="Phone Number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                      </div>
+
+                    <div class="mb-3">
+                      <label class="form-label">Password</label>
+                      <input ngModel name="password" placeholder="Password" type="password" class="form-control" id="exampleInputPassword1">
+                    </div>
+                    <button type="submit" class="btn btn-primary">SignUp</button>
+                  </form>
+                  <a routerLink="/login"> Already have an account. Login Instead.</a>
+
+            </div>
+        </div>
+    </div>
+</div>
