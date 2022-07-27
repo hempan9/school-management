@@ -17,7 +17,7 @@ export class SignupComponent implements OnInit {
     constructor(private formBuilder: FormBuilder, private _http: HttpClient
     , private router: Router, private apiService: ApiServiceService,
     private route: ActivatedRoute
-    ) 
+    )
   { }
 
   ngOnInit(): void {
@@ -30,7 +30,9 @@ signUp(data:any){
 
     this.apiService.saveStudent(data)
     .subscribe(result => {
-      console.warn(result)
+      console.warn(result);
+      this.router.navigate(['/','login']);
+      alert("Successfully saved.")
     })
 
 }
