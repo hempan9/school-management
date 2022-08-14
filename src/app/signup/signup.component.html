@@ -1,42 +1,48 @@
 <div class="container">
     <div class="row">
-        <div class="col-md-6">
+      <h1>Shree Bhumiraj Higher Secondary School</h1><hr>
+        <h5 >"KNOWLEDGE IS POWER"</h5>
+
             <div class="card">
                 <div class="text-center">
-                    <h1>School Account Signup </h1>
-                    <h5>Feel free to Signup.❤️</h5><hr>
+                    <h1>Signup to create Account </h1>
+                    <h5>By signing up, you will receive the promotion and information <br>
+                      about the school events..️</h5><hr>
 
                 </div>
                 <form #studentForm="ngForm"  (ngSubmit)= "signUp(studentForm.value)" >
                     <div class="mb-3">
                       <label class="form-label">First Name</label>
-                      <input ngModel name="firstName" placeholder="First Name" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                      <input ngModel name="firstName" placeholder="First Name" type="text" class="form-control" id="firstName"  required="true" aria-describedby="firstName">
                     </div>
 
                     <div class="mb-3">
                         <label class="form-label">Last Name</label>
-                        <input ngModel name="lastName" placeholder="Last Name"  type="text"  class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                        <input ngModel name="lastName" placeholder="Last Name"  type="text"  class="form-control" id="lastName" required="true" aria-describedby="lastName">
                       </div>
 
                       <div class="mb-3">
                         <label class="form-label">Email address</label>
-                        <input ngModel name="email" placeholder="Email Address" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                        <input ngModel name="email" placeholder="Email Address" type="email" class="form-control" id="email"  required="true" aria-describedby="email">
                       </div>
 
                       <div class="mb-3">
                         <label class="form-label">Phone Number</label>
-                        <input type="phone" ngModel name = "phone" placeholder="Phone Number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                        <input type="phone" ngModel name = "phone" placeholder="Phone Number" class="form-control" id="phone"  aria-describedby="phone">
                       </div>
 
+                  <div class="mb-3">
+                    <label class="form-label">Address</label>
+                    <input type="phone" ngModel name = "address" placeholder="Address" class="form-control" id="address"  aria-describedby="address">
+                  </div>
                     <div class="mb-3">
                       <label class="form-label">Password</label>
-                      <input ngModel name="password" placeholder="Password" type="password" class="form-control" id="exampleInputPassword1">
+                      <input ngModel name="password" placeholder="Password" type="password" required="true" class="form-control" id="password">
                     </div>
-                    <button type="submit" class="btn btn-primary">SignUp</button>
+                    <button type="submit" class="btn-primary">SignUp</button>
+
                   </form>
                   <a routerLink="/login"> Already have an account. Login Instead.</a>
-
             </div>
-        </div>
     </div>
 </div>

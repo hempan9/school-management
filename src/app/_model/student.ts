@@ -1,8 +1,9 @@
-export class Student{
-      firstName!: string;
-      lastName!: string;
-      email!: string;
-      phone!: string;
-      password!: string;
+export interface Student{
+      firstName: string;
+      lastName: string;
+      email: string;
+      phone: string;
+      address: string;
+      password: string;
 
 }
