@@ -1,0 +1,32 @@
+<!-- student.component.html -->
+
+<app-header></app-header>
+
+<div class="student-container">
+  <div class="search-bar">
+    <input type="text" [(ngModel)]="searchQuery" (input)="filterStudents()" placeholder="Search by name...">
+  </div>
+
+  <div class="student-card" *ngFor="let student of filteredStudents">
+    <div class="profile-section">
+      <img [src]="student.imageUrl" alt="Student Photo" class="profile-picture">
+      <div class="basic-info">
+        <h2>{{ student.name }}</h2>
+        <p>Roll Number: {{ student.rollNumber }}</p>
+        <p>Class: {{ student.className }}</p>
+      </div>
+    </div>
+
+    <div class="details-section">
+      <!-- Additional student details -->
+
+      <!-- View and Edit buttons -->
+      <div class="action-buttons">
+        <button (click)="viewStudentDetails(student)">View Details</button>
+        <button (click)="editStudentDetails(student)">Edit Details</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-footer></app-footer>

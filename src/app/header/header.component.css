@@ -1,0 +1,51 @@
+/* header.component.css */
+
+header {
+  background-color: #3498db;
+  color: #ecf0f1;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.logo img {
+  width: 50px;
+  border-radius: 50%;
+  transition: transform 0.3s ease;
+}
+
+.school-info {
+  text-align: center;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h1 {
+  font-size: 32px;
+  margin: 10px 0;
+  font-weight: bold;
+  color: #fff; /* Set header text color */
+}
+
+p {
+  margin: 0;
+  font-size: 18px;
+  opacity: 0.8;
+  font-style: italic;
+  color: #f0f0f0; /* Set subheading text color */
+}
+
+/* Add a hover effect to the logo */
+.logo:hover {
+  transform: scale(1.1);
+}
+
+/* Add a subtle animation to the header */
+header:hover {
+  background-color: #2980b9;
+  transition: background-color 0.3s ease;
+}

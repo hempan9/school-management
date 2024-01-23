@@ -1,43 +1,76 @@
-.card{
-    margin-top: 18px;
-    border: 3px solid rebeccapurple;
-    width: 550px;
-    padding: 45px;
-    position: absolute;
-    top: 18%;
-    left: 24%;
-  background: darkkhaki;
-  font-family: "Academy Engraved LET";
-}
-.row{
-text-align: center;background: aliceblue;
-}
-.container{
-  background: darkcyan;
-}
-.btn-primary{
-  text-align: center;
-  text-decoration: none;
-  display:ruby-base;
-  font-size: 16px;
-  padding:5px;
-  background-color: #dcdcdc;
-  border: 1px solid #666;
-  color:#000;
-  text-decoration:none;
-  text-decoration-color: darkslategrey;
+/* signup.component.css */
+
+/* Global Styles */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Arial', sans-serif;
 }
 
-.mb-3{
-  padding: 5px 10px;
-  font-family: AkayaKanadaka;
-  font-style: initial;
-  margin: 10px;
-  display: ruby-base-container;
+/* Header Styling */
+app-header {
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
+  text-align: center;
 }
-.form-control{
-  padding: 5px;
-  display: initial;
-  color: darkcyan;
-  font-style: italic;
+
+/* Signup Form Styling */
+.signup-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card {
+  width: 100%;
+  max-width: 500px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin: 20px;
+  padding: 20px;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.signup-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+.btn-primary {
+  width: 100%;
+  padding: 15px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+}
+
+.login-link {
+  text-align: center;
+  margin-top: 20px;
 }

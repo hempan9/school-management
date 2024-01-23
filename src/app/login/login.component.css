@@ -1,10 +1,88 @@
-.card{
-    margin-top: 15px;
-    border: 1px solid blue;
-    width: 550px;
-    padding: 45px;
-    position: absolute;
-    top: 22%;
-    left: 24%;
+/* login.component.css */
 
+/* Global Styles */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Arial', sans-serif;
+}
+
+/* Header Styling */
+app-header {
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
+  text-align: center;
+}
+
+/* Login Form Styling */
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.login-card {
+  width: 100%;
+  max-width: 500px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin: 20px;
+  padding: 20px;
+}
+
+.login-header {
+  text-align: center;
+}
+
+.login-divider {
+  margin: 15px 0;
+  border: none;
+  border-top: 1px solid #ccc;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.login-group {
+  margin-bottom: 20px;
+}
+
+label {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+.login-help {
+  font-size: 12px;
+  color: #777;
+}
+
+.login-btn {
+  width: 100%;
+  padding: 15px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.login-btn:hover {
+  background-color: #0056b3;
+}
+
+.login-footer {
+  text-align: center;
+  margin-top: 30px;
 }
