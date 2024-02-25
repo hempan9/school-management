@@ -1,7 +1,7 @@
-// student.component.ts
-
 import { Component, OnInit } from '@angular/core';
-import { SearchService } from '../search.service';
+import { SearchService } from '../services/search.service';
+import { ApiServiceService } from '../services/api-service.service';
+import { Student } from '../_model/student';
 
 @Component({
   selector: 'app-student',
@@ -9,47 +9,100 @@ import { SearchService } from '../search.service';
   styleUrls: ['./student.component.css'],
 })
 export class StudentComponent implements OnInit {
-  students = [
-    {
-      name: 'John Doe',
-      rollNumber: '12345',
-      className: '10th',
-      imageUrl: 'path/to/john-doe.jpg',
-      email: 'john@example.com',
-      phone: '+1234567890',
-      address: '123 Main St, City',
-      parentName: 'Jane Doe',
-      parentEmail: 'jane@example.com',
-      parentPhone: '+9876543210',
-    },
-    // Add more student data as needed
-  ];
-  searchQuery: string = '';
-  filteredStudents: any[] = [];
-  selectedStudent: any = null;
+  students: Student[] = [];
+  filteredStudents: Student[] = [];
+  searchTerm: string = '';
+  newStudent: Student = {
+    firstName: '',
+    lastName: '',
+    address: '',
+    email: '',
+    phoneNumber: '',
+    password: '',
+    studentId: 0,
+    departmentId: 0,
+  };
 
-  constructor(private searchService: SearchService) {}
+  currentPage: number = 0;
+  pageSize: number = 10;
+  totalPages: number = 0;
+
+  constructor(
+    private searchService: SearchService,
+    private apiService: ApiServiceService
+  ) {}
 
   ngOnInit(): void {
-    this.filteredStudents = [...this.students];
+    this.fetchAllStudents();
   }
 
-  filterStudents(): void {
-    this.filteredStudents = this.searchService.filterItems(
-      this.students,
-      this.searchQuery,
-      'name'
-    );
+  fetchAllStudents(): void {
+    this.apiService
+      .getAllStudents(this.currentPage, this.pageSize)
+      .subscribe((students: Student[]) => {
+        this.students = students;
+        this.filteredStudents = students;
+        this.calculateTotalPages();
+      });
   }
 
-  viewStudentDetails(student: any): void {
-    // Implement the logic to display detailed view of the student
-    this.selectedStudent = student;
-    // You can navigate to a detailed view page or show a modal, etc.
+  search(): void {
+    if (this.searchTerm.trim() === '') {
+      this.filteredStudents = this.students;
+      return;
+    }
+    this.filteredStudents = [];
+    this.students.forEach((student) => {
+      console.log('searching for student');
+      if (this.searchTerm.match(student.firstName))
+        this.filteredStudents.push(student);
+      console.log('found student: ', student);
+    });
+    console.log('found matches: ', this.filteredStudents);
+    return;
   }
 
-  editStudentDetails(student: any): void {
-    // Implement the logic to edit student details
-    // You can navigate to an edit page or show an editable modal, etc.
+  addStudent(): void {
+    // if (
+    //   this.newStudent.firstName &&
+    //   this.newStudent.lastName &&
+    //   this.newStudent.address
+    // ) {
+    //   this.studentService.addStudent(this.newStudent).subscribe(() => {
+    //     // Refresh the list of students after adding a new student
+    //     this.fetchAllStudents();
+    //     // Clear the form fields
+    //     this.newStudent = { firstName: '', lastName: '', address: '' };
+    //   });
+    // }
+  }
+
+  nextPage(): void {
+    if (this.currentPage < this.totalPages) {
+      this.currentPage++;
+      this.fetchAllStudents();
+    }
+  }
+
+  prevPage(): void {
+    if (this.currentPage > 1) {
+      this.currentPage--;
+      this.fetchAllStudents();
+    }
+  }
+
+  goToPage(page: number): void {
+    if (page >= 1 && page <= this.totalPages && page !== this.currentPage) {
+      this.currentPage = page;
+      this.fetchAllStudents();
+    }
+  }
+
+  private calculateTotalPages(): void {
+    this.totalPages = Math.ceil(this.students.length / this.pageSize);
+  }
+
+  get pages(): number[] {
+    return Array.from({ length: this.totalPages }, (_, i) => i + 1);
   }
 }

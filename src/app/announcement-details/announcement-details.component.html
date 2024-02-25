@@ -1,0 +1,10 @@
+<app-header></app-header>
+<app-nav-bar></app-nav-bar>
+<div class="announcement-details" *ngIf="announcement">
+  <h2>{{ announcement.title }}</h2>
+  <p>{{ announcement.description }}</p>
+  <p><strong>Date Published:</strong> {{ announcement.datePublished }}</p>
+  <p><strong>Publisher:</strong> {{ announcement.publisher }}</p>
+  <!-- Add any other details you want to display -->
+</div>
+<app-footer></app-footer>

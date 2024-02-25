@@ -8,10 +8,21 @@ header {
   justify-content: space-between;
   align-items: center;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo a {
+  text-decoration: none;
 }
 
 .logo img {
-  width: 50px;
+  width: 80px; /* Make the image larger */
+  height: auto; /* Maintain aspect ratio */
   border-radius: 50%;
   transition: transform 0.3s ease;
 }
@@ -28,7 +39,8 @@ h1 {
   font-size: 32px;
   margin: 10px 0;
   font-weight: bold;
-  color: #fff; /* Set header text color */
+  font-family: 'Your Chosen Font', sans-serif;
+  color: #fff;
 }
 
 p {
@@ -36,16 +48,31 @@ p {
   font-size: 18px;
   opacity: 0.8;
   font-style: italic;
-  color: #f0f0f0; /* Set subheading text color */
+  font-family: 'Your Chosen Font', sans-serif;
+  color: #f0f0f0;
 }
 
 /* Add a hover effect to the logo */
-.logo:hover {
+.logo:hover img {
   transform: scale(1.1);
 }
 
 /* Add a subtle animation to the header */
 header:hover {
   background-color: #2980b9;
-  transition: background-color 0.3s ease;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  .logo img {
+    width: 60px; /* Adjust the size for smaller screens */
+  }
+
+  h1 {
+    font-size: 24px;
+  }
+
+  p {
+    font-size: 16px;
+  }
 }

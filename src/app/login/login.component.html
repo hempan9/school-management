@@ -1,25 +1,28 @@
-<!-- login.component.html -->
-
 <app-header></app-header>
-
 <div class="login-container">
   <div class="login-card">
     <div class="login-header">
-      <h1>School Students Login</h1>
+      <h1>School Login</h1>
       <h5>Feel free to login.</h5>
       <hr class="login-divider">
     </div>
-    <form #studentLoginForm="ngForm" (ngSubmit)="logIn(studentLoginForm.value)" class="login-form">
+    <form #studentLoginForm="ngForm" (ngSubmit)="login(studentLoginForm.value)" class="login-form">
       <div class="login-group">
-        <label for="email">Email</label>
-        <input type="email" ngModel name="email" id="email" placeholder="Enter your email">
+        <label for="username">Username</label>
+        <input type="email" ngModel name="username" id="username" placeholder="Enter your email">
         <div class="login-help">We'll never share your email with anyone else.</div>
       </div>
       <div class="login-group">
         <label for="password">Password</label>
         <input type="password" ngModel name="password" id="password" placeholder="Enter your password">
       </div>
-      <button type="submit" class="login-btn">Login</button>
+      <button (click)="login" type="submit"  class="login-btn">Login</button>
+      <div *ngIf="loginError" class="login-error">
+        <p>Error: Invalid username or password. Please try again.</p>
+      </div>
+      <div *ngIf="loginErrorServer" class="login-error">
+        <p>Something went wrong. Please try again.</p>
+      </div>
     </form>
     <div class="login-footer">
       <p>
@@ -28,5 +31,4 @@
     </div>
   </div>
 </div>
-
 <app-footer></app-footer>

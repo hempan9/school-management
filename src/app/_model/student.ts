@@ -1,9 +1,10 @@
-export interface Student{
-      firstName: string;
-      lastName: string;
-      email: string;
-      phone: string;
-      address: string;
-      password: string;
-
+export interface Student {
+  studentId: Number;
+  firstName: string;
+  lastName: string;
+  departmentId: Number;
+  email: string;
+  phoneNumber: string;
+  address: string;
+  password: string;
 }

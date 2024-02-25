@@ -1,19 +1,45 @@
-<!-- dashboard.component.html -->
+<app-header></app-header>
+<app-nav-bar></app-nav-bar>
 
 <div class="dashboard-container">
-    <h2>Welcome to the Dashboard, [User Name]!</h2>
-  
-    <div class="announcement-section">
-      <h3>Announcements</h3>
-      <!-- Display announcements here -->
+  <h2>Welcome to the Dashboard, {{ getCurrentUser() }}!</h2>
+  <div class="announcement-section">
+    <h3>Announcements</h3>
+
+    <div *ngIf="announcements; else loadingAnnouncements" class="announcement-cards">
+      <!-- Use ngFor to loop through announcements and display them as clickable cards -->
+      <a *ngFor="let announcement of announcements" class="announcement-card" (click)="navigateToDetail(announcement.announcementId)">
+        <h4>{{ announcement.title }}</h4>
+        <p>{{ announcement.description }}</p>
+        <div class="additional-info">
+          <p><strong>Date Published:</strong> {{ announcement.datePublished }}</p>
+          <p><strong>Publisher:</strong> {{ announcement.publisher }}</p>
+        </div>
+      </a>
     </div>
-  
-    <div class="calendar-section">
-      <h3>Calendar and Events</h3>
-      <!-- Display calendar and events here -->
+
+    <ng-template #loadingAnnouncements>
+      <p>Loading announcements...</p>
+    </ng-template>
+    <div class="pagination-container">
+      <div class="pagination">
+        <button *ngIf="announcements" (click)="previousPage()" [disabled]="currentPage === 0" class="pagination-button">Previous</button>
+
+        <ng-container *ngFor="let page of pages">
+          <!-- Highlight the active page -->
+          <button (click)="goToPage(page)" [class.active]="currentPage === page" class="pagination-button">{{ page }}</button>
+        </ng-container>
+
+        <button *ngIf="announcements" (click)="nextPage()" [disabled]="announcements.length < currentPage" class="pagination-button">Next</button>
+      </div>
     </div>
-  
-    <!-- Add other sections as needed -->
-  
   </div>
-  
+
+  <!-- Placeholder for the Calendar section -->
+  <div class="calendar-section">
+    <h3>Calendar</h3>
+    <!-- Add your calendar content here -->
+  </div>
+</div>
+
+<app-footer></app-footer>

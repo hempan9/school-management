@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { UserAuthService } from '../services/user-auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -6,11 +8,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements OnInit {
-  constructor() {}
+  constructor(
+    private userAuthService: UserAuthService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {}
-  logout(): void {
-    window.alert('Logout?');
-    console.log('Logged out!');
-  }
 }

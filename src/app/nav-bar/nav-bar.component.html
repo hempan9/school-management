@@ -1,0 +1,22 @@
+<mat-toolbar color="primary" class="navbar-container">
+    <div class="horizontal-menu">
+      <a mat-button routerLink="/dashboard">Dashboard</a>
+      <a mat-button routerLink="/student">Student</a>
+      <a mat-button routerLink="/teacher">Teacher</a>
+      <a mat-button routerLink="/attendance">Attendance</a>
+      <!-- Add other menu items as needed -->
+    </div>
+    
+    <div class="user-profile">
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item (click)="editProfile()">Edit Profile</button>
+        <button mat-menu-item (click)="logout()">Logout</button>
+      </mat-menu>   
+      <button mat-icon-button [matMenuTriggerFor]="menu">
+        <mat-icon>account_circle</mat-icon>
+      </button>
+      
+      <span class="welcome-message">{{ getLoggedInUser() }}</span>
+    </div>
+  </mat-toolbar>
+  

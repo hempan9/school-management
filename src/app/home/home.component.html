@@ -1,29 +1,4 @@
 <!-- app.component.html -->
-
-<div class="app-container">
-  <header>
-    <div class="logo-container">
-      <img src="../../assets/school.jpeg" alt="School Logo" class="logo">
-      <span class="school-name">Shree Bhumiraj Higher School, Dahatal, Baitadi</span>
-    </div>
-  </header>
-  <nav>
-    <ul class="horizontal-menu">
-      <li><a routerLink="/dashboard">Dashboard</a></li>
-      <li><a routerLink="/student">Student</a></li>
-      <li><a routerLink="/teacher">Teacher</a></li>
-      <li><a routerLink="/attendance">Attendance</a></li>
-      <!-- Add other menu items as needed -->
-    </ul>
-  </nav>
-
-  <div class="user-profile">
-    <span>Welcome, [User Name]</span>
-    <div class="profile-actions">
-      <a routerLink="/edit-profile">Edit Profile</a>
-      <a (click)="logout()">Logout</a>
-    </div>
-  </div>
-
-  <router-outlet></router-outlet>
-</div>
+<app-header></app-header>
+<app-nav-bar></app-nav-bar>
+<app-footer></app-footer>

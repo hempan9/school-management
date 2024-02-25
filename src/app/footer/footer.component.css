@@ -1,52 +1,68 @@
-/* footer.component.css */
-
+/* Footer styles */
 footer {
-    background-color: #2c3e50; /* Footer background color */
-    color: #ecf0f1; /* Text color */
-    padding: 20px;
-    text-align: center;
-  }
-  
-  .footer-content {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-  }
-  
-  .footer-section {
-    width: 30%;
-    margin-bottom: 20px;
-  }
-  
-  h3 {
-    color: #3498db; /* Heading color */
-  }
-  
-  ul {
-    list-style-type: none;
-    padding: 0;
-  }
-  
-  li {
-    margin-bottom: 8px;
-  }
-  
-  a {
-    text-decoration: none;
-    color: #ecf0f1; /* Link color */
-  }
-  
-  a:hover {
-    color: #3498db; /* Hover color */
-  }
-  
-  .social-icons a {
-    margin-right: 10px;
-    font-size: 18px;
-    color: #ecf0f1;
-  }
-  
-  .copyright {
-    margin-top: 20px;
-  }
-  
+  background-color: #2C3E50;
+  color: #ECF0F1;
+  padding: 20px 0;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.footer-section {
+  margin-bottom: 20px;
+}
+
+.footer-section h3 {
+  font-size: 1.2em;
+  margin-bottom: 10px;
+}
+
+.footer-section p {
+  margin: 5px 0;
+}
+
+.footer-section ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.footer-section ul li {
+  margin-bottom: 5px;
+}
+
+.footer-section a {
+  color: #ECF0F1;
+  text-decoration: none;
+  transition: color 0.3s ease-in-out;
+}
+
+.footer-section a:hover {
+  color: #3498DB;
+}
+
+.social-icons a {
+  color: #ECF0F1;
+  text-decoration: none;
+  margin-right: 10px;
+  transition: color 0.3s ease-in-out;
+}
+
+.social-icons a:hover {
+  color: #3498DB;
+}
+
+.copyright {
+  text-align: center;
+  margin-top: 20px;
+}
+
+/* FontAwesome Icons */
+.fa-facebook,
+.fa-twitter,
+.fa-linkedin,
+.fa-instagram {
+  font-size: 1.5em;
+}
